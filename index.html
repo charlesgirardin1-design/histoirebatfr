@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pierres de France — L'histoire des bâtiments français</title>
+<meta name="description" content="Un voyage à travers 2000 ans d'architecture française, des arènes romaines aux tours de verre contemporaines.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="30" height="30"><path d="M24 4 L44 18 V22 H4 V18 Z" fill="currentColor"/><rect x="8" y="22" width="4" height="16" fill="currentColor"/><rect x="16" y="22" width="4" height="16" fill="currentColor"/><rect x="24" y="22" width="4" height="16" fill="currentColor"/><rect x="32" y="22" width="4" height="16" fill="currentColor"/><rect x="4" y="38" width="40" height="4" fill="currentColor"/></svg>
+      </span>
+      <span>Pierres de France</span>
+    </a>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navList" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="navList">
+        <li><a href="#frise">Frise chronologique</a></li>
+        <li><a href="#styles">Styles</a></li>
+        <li><a href="#carte">Carte</a></li>
+        <li><a href="#a-propos">À propos</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <svg viewBox="0 0 1200 400" preserveAspectRatio="none">
+        <polygon points="0,400 0,220 60,180 120,230 180,150 240,220 300,120 360,210 420,170 480,230 540,140 600,200 660,160 720,230 780,180 840,220 900,130 960,210 1020,170 1080,230 1140,190 1200,220 1200,400" fill="rgba(255,255,255,0.06)"/>
+        <polygon points="0,400 0,270 80,240 150,280 220,230 300,270 380,220 460,260 540,210 620,260 700,225 780,270 860,230 940,265 1020,220 1100,260 1200,240 1200,400" fill="rgba(255,255,255,0.10)"/>
+      </svg>
+    </div>
+    <div class="hero-content">
+      <p class="hero-kicker">2000 ans d'architecture</p>
+      <h1>L'histoire des bâtiments français, <span>pierre après pierre</span></h1>
+      <p class="hero-lede">Des arènes gallo-romaines aux flèches gothiques, des châteaux de la Renaissance aux tours de verre contemporaines : découvrez comment la France a construit son visage à travers les siècles.</p>
+      <div class="hero-actions">
+        <a href="#frise" class="btn btn-primary">Explorer la frise</a>
+        <a href="#styles" class="btn btn-ghost">Voir les styles</a>
+      </div>
+      <dl class="hero-stats">
+        <div><dt>10</dt><dd>grandes époques</dd></div>
+        <div><dt>2000+</dt><dd>ans d'histoire</dd></div>
+        <div><dt>26</dt><dd>monuments phares</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- FILTERS -->
+  <section class="filters-section" id="styles">
+    <div class="container">
+      <h2 class="section-title">Filtrer par style architectural</h2>
+      <p class="section-sub">Cliquez sur une étiquette pour ne voir qu'une seule époque dans la frise ci-dessous.</p>
+      <div class="filters" id="filters" role="group" aria-label="Filtrer les époques">
+        <button class="chip active" data-filter="all">Tout voir</button>
+        <button class="chip" data-filter="antique">Antiquité</button>
+        <button class="chip" data-filter="roman">Roman</button>
+        <button class="chip" data-filter="gothique">Gothique</button>
+        <button class="chip" data-filter="renaissance">Renaissance</button>
+        <button class="chip" data-filter="classique">Classique &amp; Baroque</button>
+        <button class="chip" data-filter="neoclassique">Néoclassique</button>
+        <button class="chip" data-filter="haussmann">Haussmannien</button>
+        <button class="chip" data-filter="artnouveau">Art nouveau</button>
+        <button class="chip" data-filter="moderne">Moderne</button>
+        <button class="chip" data-filter="contemporain">Contemporain</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section" id="frise">
+    <div class="container">
+      <h2 class="section-title">La frise chronologique</h2>
+      <p class="section-sub">Chaque époque a laissé son empreinte dans la pierre. Cliquez sur « En savoir plus » pour déplier les détails d'un édifice.</p>
+
+      <div class="timeline" id="timeline">
+
+        <article class="era" data-era="antique">
+          <div class="era-marker" aria-hidden="true"><span></span></div>
+          <div class="era-card">
+            <header class="era-head">
+              <span class="era-period">env. 50 av. J.-C. – 400 apr. J.-C.</span>
+              <h3>Antiquité gallo-romaine</h3>
+            </header>
+            <p class="era-text">Après la conquête de la Gaule, Rome importe son savoir-faire : arcs en plein cintre, voûtes, béton romain et pierre de taille. Théâtres, amphithéâtres, temples et aqueducs structurent les nouvelles cités gallo-romaines.</p>
+            <ul class="building-list">
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><path d="M4 50 a28 20 0 0 1 56 0" fill="none" stroke="currentColor" stroke-width="3"/><path d="M4 50 h56" stroke="currentColor" stroke-width="3"/><path d="M10 50 V38 M18 50 V32 M26 50 V28 M32 50 V26 M38 50 V28 M46 50 V32 M54 50 V38" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Arènes de Nîmes <span class="tag">Nîmes, Gard</span></h4>
+                  <p>Construit vers 90 apr. J.-C., cet amphithéâne pouvait accueillir jusqu'à 24 000 spectateurs pour des combats de gladiateurs. C'est l'un des amphithéâtres romains les mieux conservés au monde, encore utilisé aujourd'hui pour des spectacles.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Style :</strong> architecture romaine, opus caementicium et pierre calcaire</li>
+                      <li><strong>Particularité :</strong> 34 rangées de gradins et un système de vélum pour protéger du soleil</li>
+                      <li><strong>Aujourd'hui :</strong> classé monument historique, accueille corridas et concerts</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><path d="M4 30 h56 M4 30 v6 h56 v-6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 36 V54 M20 36 V54 M30 36 V54 M40 36 V54 M50 36 V54" stroke="currentColor" stroke-width="3"/><path d="M4 12 a10 10 0 0 1 20 0 a10 10 0 0 1 20 0 a10 10 0 0 1 16 0" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Pont du Gard <span class="tag">Vers-Pont-du-Gard, Gard</span></h4>
+                  <p>Ce pont-aqueduc à trois niveaux d'arcades, bâti au I<sup>er</sup> siècle, acheminait l'eau sur 50 km jusqu'à Nîmes. Un chef-d'œuvre d'ingénierie hydraulique romaine, aujourd'hui inscrit au patrimoine mondial de l'UNESCO.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Hauteur :</strong> 48,8 m, le plus haut pont-aqueduc romain conservé</li>
+                      <li><strong>Prouesse :</strong> une pente de seulement 2,5 cm par 100 m sur tout le tracé</li>
+                      <li><strong>Aujourd'hui :</strong> site classé UNESCO depuis 1985</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="era" data-era="roman">
+          <div class="era-marker" aria-hidden="true"><span></span></div>
+          <div class="era-card">
+            <header class="era-head">
+              <span class="era-period">env. 1000 – 1150</span>
+              <h3>Art roman</h3>
+            </header>
+            <p class="era-text">Après l'an mil, l'essor des routes de pèlerinage fait fleurir abbayes et églises massives : murs épais, arcs en plein cintre, petites fenêtres, chapiteaux sculptés. Un art fervent, ancré dans la pierre.</p>
+            <ul class="building-list">
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><path d="M12 54 V30 a20 20 0 0 1 40 0 V54" fill="none" stroke="currentColor" stroke-width="3"/><path d="M6 54 h52" stroke="currentColor" stroke-width="3"/><path d="M22 54 V38 a10 10 0 0 1 20 0 V54" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Basilique Sainte-Marie-Madeleine <span class="tag">Vézelay, Yonne</span></h4>
+                  <p>Haut lieu de pèlerinage vers Compostelle, sa nef lumineuse et son célèbre tympan sculpté en font l'un des sommets de l'art roman bourguignon.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Construction :</strong> XII<sup>e</sup> siècle</li>
+                      <li><strong>Particularité :</strong> tympan sculpté représentant la mission des apôtres</li>
+                      <li><strong>Aujourd'hui :</strong> UNESCO depuis 1979, étape du chemin de Saint-Jacques</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><rect x="10" y="20" width="10" height="34" fill="none" stroke="currentColor" stroke-width="3"/><rect x="26" y="10" width="12" height="44" fill="none" stroke="currentColor" stroke-width="3"/><rect x="44" y="24" width="10" height="30" fill="none" stroke="currentColor" stroke-width="3"/><path d="M26 10 l6 -8 6 8" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Abbaye de Cluny <span class="tag">Cluny, Saône-et-Loire</span></h4>
+                  <p>Autrefois la plus grande église de la chrétienté avant Saint-Pierre de Rome, Cluny III fut le cœur d'un immense réseau monastique. Très largement détruite après la Révolution, elle reste un symbole de la puissance romane.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Apogée :</strong> XI<sup>e</sup>-XII<sup>e</sup> siècle, plus de 1000 monastères affiliés</li>
+                      <li><strong>Longueur d'origine :</strong> environ 187 mètres</li>
+                      <li><strong>Aujourd'hui :</strong> vestiges visitables, dont le clocher de l'Eau Bénite</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="era" data-era="gothique">
+          <div class="era-marker" aria-hidden="true"><span></span></div>
+          <div class="era-card">
+            <header class="era-head">
+              <span class="era-period">env. 1140 – 1500</span>
+              <h3>Gothique</h3>
+            </header>
+            <p class="era-text">Né en Île-de-France, l'art gothique libère les murs grâce à la croisée d'ogives, l'arc-boutant et le vitrail. Les cathédrales s'élancent vers le ciel dans une course à la hauteur et à la lumière.</p>
+            <ul class="building-list">
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><path d="M8 54 V26 L20 8 L32 26 V54" fill="none" stroke="currentColor" stroke-width="3"/><path d="M32 54 V26 L44 8 L56 26 V54" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="32" cy="34" r="6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Cathédrale Notre-Dame de Paris <span class="tag">Paris</span></h4>
+                  <p>Commencée en 1163, elle synthétise l'art gothique naissant avec ses arcs-boutants, sa rosace et ses tours emblématiques. Ravagée par un incendie en 2019, elle a rouvert ses portes en 2024 après une restauration spectaculaire.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Construction :</strong> 1163 – vers 1345</li>
+                      <li><strong>Hauteur des tours :</strong> 69 mètres</li>
+                      <li><strong>Restauration :</strong> flèche et charpente reconstruites à l'identique, réouverture en décembre 2024</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><path d="M6 54 V24 L16 6 L26 24 V54" fill="none" stroke="currentColor" stroke-width="3"/><path d="M26 54 V16 L34 2 L42 16 V54" fill="none" stroke="currentColor" stroke-width="3"/><path d="M42 54 V24 L52 6 L58 24 V54" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Cathédrale de Chartres <span class="tag">Chartres, Eure-et-Loir</span></h4>
+                  <p>Reconstruite après l'incendie de 1194, elle conserve la quasi-totalité de ses 176 vitraux d'origine, un ensemble unique au monde, et son fameux « bleu de Chartres ».</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Construction :</strong> essentiellement 1194-1220, un record de rapidité pour l'époque</li>
+                      <li><strong>Particularité :</strong> deux flèches asymétriques (roman et gothique flamboyant)</li>
+                      <li><strong>Aujourd'hui :</strong> UNESCO depuis 1979</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><path d="M8 54 V20 L32 6 L56 20 V54" fill="none" stroke="currentColor" stroke-width="3"/><path d="M20 54 V30 M32 54 V26 M44 54 V30" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Cathédrale Notre-Dame d'Amiens <span class="tag">Amiens, Somme</span></h4>
+                  <p>La plus vaste cathédrale gothique de France par son volume intérieur, symbole de l'apogée du gothique classique picard.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Construction :</strong> 1220-1288</li>
+                      <li><strong>Hauteur de la nef :</strong> 42,3 mètres</li>
+                      <li><strong>Aujourd'hui :</strong> UNESCO depuis 1981, célèbre pour son spectacle son et lumière estival</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="era" data-era="renaissance">
+          <div class="era-marker" aria-hidden="true"><span></span></div>
+          <div class="era-card">
+            <header class="era-head">
+              <span class="era-period">env. 1495 – 1610</span>
+              <h3>Renaissance</h3>
+            </header>
+            <p class="era-text">Au retour des guerres d'Italie, François I<sup>er</sup> et la cour ramènent les idées humanistes et l'architecture antique réinventée. Le Val de Loire se couvre de châteaux mêlant symétrie classique et fantaisie française.</p>
+            <ul class="building-list">
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><rect x="8" y="24" width="48" height="30" fill="none" stroke="currentColor" stroke-width="3"/><path d="M8 24 L16 10 L24 24 M40 24 L48 10 L56 24" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="16" cy="8" r="2" fill="currentColor"/><circle cx="48" cy="8" r="2" fill="currentColor"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Château de Chambord <span class="tag">Chambord, Loir-et-Cher</span></h4>
+                  <p>Fantaisie architecturale de François I<sup>er</sup>, Chambord marie plan médiéval et vocabulaire italien, couronné par une forêt de cheminées et de lucarnes, et son célèbre escalier à double révolution attribué à l'entourage de Léonard de Vinci.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Construction :</strong> à partir de 1519</li>
+                      <li><strong>Chambres :</strong> 426 pièces, 282 cheminées</li>
+                      <li><strong>Aujourd'hui :</strong> UNESCO (Val de Loire), l'un des châteaux les plus visités de France</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><rect x="14" y="10" width="36" height="16" fill="none" stroke="currentColor" stroke-width="3"/><path d="M8 30 h48 M14 30 V54 M50 30 V54 M8 54 h56" stroke="currentColor" stroke-width="3"/><path d="M14 40 h36" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Château de Chenonceau <span class="tag">Chenonceaux, Indre-et-Loire</span></h4>
+                  <p>Surnommé le « château des Dames », il enjambe le Cher grâce à sa célèbre galerie sur arches, voulue par Catherine de Médicis.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Construction :</strong> 1513-1521, galerie ajoutée en 1576-1577</li>
+                      <li><strong>Particularité :</strong> bâti directement sur le lit du Cher</li>
+                      <li><strong>Aujourd'hui :</strong> deuxième château le plus visité de France</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="era" data-era="classique">
+          <div class="era-marker" aria-hidden="true"><span></span></div>
+          <div class="era-card">
+            <header class="era-head">
+              <span class="era-period">env. 1630 – 1750</span>
+              <h3>Classicisme &amp; Baroque</h3>
+            </header>
+            <p class="era-text">Sous Louis XIV, l'architecture devient un instrument de pouvoir : ordre, symétrie, colonnades et perspectives infinies mettent en scène la grandeur monarchique, du Louvre à Versailles.</p>
+            <ul class="building-list">
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><rect x="4" y="30" width="56" height="24" fill="none" stroke="currentColor" stroke-width="3"/><path d="M12 30 V54 M22 30 V54 M32 30 V54 M42 30 V54 M52 30 V54" stroke="currentColor" stroke-width="2"/><path d="M4 30 h56 v-8 h-56 z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M24 6 h16 v16 h-16 z" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Château de Versailles <span class="tag">Versailles, Yvelines</span></h4>
+                  <p>Résidence des rois de France transformée par Louis XIV en vitrine absolue du pouvoir royal : Galerie des Glaces, jardins à la française signés Le Nôtre, et façades classiques dessinées par Le Vau puis Hardouin-Mansart.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Transformation :</strong> à partir de 1661</li>
+                      <li><strong>Galerie des Glaces :</strong> 357 miroirs, 73 mètres de long</li>
+                      <li><strong>Aujourd'hui :</strong> UNESCO depuis 1979, plusieurs millions de visiteurs par an</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><path d="M32 6 a14 14 0 0 1 14 14 v6 h-28 v-6 a14 14 0 0 1 14 -14 z" fill="none" stroke="currentColor" stroke-width="3"/><rect x="10" y="26" width="44" height="28" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="32" cy="2" r="2" fill="currentColor"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Les Invalides <span class="tag">Paris</span></h4>
+                  <p>Fondé par Louis XIV pour accueillir les soldats invalides, l'ensemble est couronné par le dôme doré de Jules Hardouin-Mansart, chef-d'œuvre du baroque classique français, aujourd'hui tombeau de Napoléon I<sup>er</sup>.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Construction :</strong> 1671-1706 (dôme achevé en 1706)</li>
+                      <li><strong>Hauteur du dôme :</strong> 107 mètres</li>
+                      <li><strong>Aujourd'hui :</strong> musée de l'Armée et tombeau de Napoléon</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="era" data-era="neoclassique">
+          <div class="era-marker" aria-hidden="true"><span></span></div>
+          <div class="era-card">
+            <header class="era-head">
+              <span class="era-period">env. 1750 – 1850</span>
+              <h3>Néoclassicisme</h3>
+            </header>
+            <p class="era-text">Face aux excès du rococo, on revient à la pureté de l'Antiquité grecque et romaine : colonnes, frontons triangulaires et sobriété monumentale, un langage repris par la Révolution puis l'Empire.</p>
+            <ul class="building-list">
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><path d="M6 24 L32 6 L58 24" fill="none" stroke="currentColor" stroke-width="3"/><rect x="10" y="24" width="44" height="30" fill="none" stroke="currentColor" stroke-width="3"/><path d="M16 24 V54 M24 24 V54 M32 24 V54 M40 24 V54 M48 24 V54" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Le Panthéon <span class="tag">Paris</span></h4>
+                  <p>Conçu par Soufflot comme église Sainte-Geneviève, il devient sous la Révolution un temple laïque dédié aux grands hommes, avec son immense dôme inspiré de Saint-Pierre de Rome et du Panthéon antique.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Construction :</strong> 1758-1790</li>
+                      <li><strong>Célèbre expérience :</strong> le pendule de Foucault y démontra la rotation de la Terre en 1851</li>
+                      <li><strong>Aujourd'hui :</strong> nécropole de personnalités françaises (Voltaire, Curie, Hugo...)</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><path d="M14 54 V16 h10 v-6 h16 v6 h10 v38" fill="none" stroke="currentColor" stroke-width="3"/><path d="M20 54 V26 h24 v28" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Arc de Triomphe <span class="tag">Paris</span></h4>
+                  <p>Commandé par Napoléon I<sup>er</sup> pour célébrer ses victoires, cet arc monumental inspiré de l'Antiquité romaine domine la place de l'Étoile et abrite la tombe du Soldat inconnu.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Construction :</strong> 1806-1836</li>
+                      <li><strong>Hauteur :</strong> 50 mètres</li>
+                      <li><strong>Aujourd'hui :</strong> point de départ de 12 avenues, panorama sur Paris</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="era" data-era="haussmann">
+          <div class="era-marker" aria-hidden="true"><span></span></div>
+          <div class="era-card">
+            <header class="era-head">
+              <span class="era-period">1853 – 1870</span>
+              <h3>Haussmannien</h3>
+            </header>
+            <p class="era-text">Le baron Haussmann redessine Paris pour Napoléon III : larges boulevards, immeubles de pierre de taille aux façades alignées, balcons filants et toits en zinc à la Mansart. Le visage classique du Paris moderne est né.</p>
+            <ul class="building-list">
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><rect x="8" y="14" width="48" height="40" fill="none" stroke="currentColor" stroke-width="3"/><path d="M8 26 h48 M8 38 h48" stroke="currentColor" stroke-width="1.5"/><path d="M14 14 V6 M50 14 V6" stroke="currentColor" stroke-width="2"/><rect x="16" y="18" width="6" height="6" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="28" y="18" width="6" height="6" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="40" y="18" width="6" height="6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Les immeubles haussmanniens <span class="tag">Paris et grandes villes</span></h4>
+                  <p>Bâtis selon des règles strictes de hauteur et d'alignement, ces immeubles en pierre de taille structurent aujourd'hui encore l'image emblématique de Paris, avec leurs balcons au 2<sup>e</sup> et 5<sup>e</sup> étage.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Réglementation :</strong> hauteur limitée selon la largeur de la rue</li>
+                      <li><strong>Matériaux :</strong> pierre de Paris, toits en zinc à forte pente</li>
+                      <li><strong>Aujourd'hui :</strong> plus de 60% des façades du centre de Paris</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><path d="M32 6 L54 20 V54 H10 V20 Z" fill="none" stroke="currentColor" stroke-width="3"/><rect x="24" y="34" width="16" height="20" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="26" r="5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Opéra Garnier <span class="tag">Paris</span></h4>
+                  <p>Symbole du style « Napoléon III », mêlant classicisme, baroque et éléments Renaissance dans une débauche de marbre, de dorures et de sculptures — l'un des plus beaux opéras du monde.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Construction :</strong> 1861-1875, par Charles Garnier</li>
+                      <li><strong>Particularité :</strong> plafond peint par Marc Chagall en 1964</li>
+                      <li><strong>Aujourd'hui :</strong> salle de l'Opéra national de Paris (ballet)</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="era" data-era="artnouveau">
+          <div class="era-marker" aria-hidden="true"><span></span></div>
+          <div class="era-card">
+            <header class="era-head">
+              <span class="era-period">env. 1890 – 1910</span>
+              <h3>Art nouveau</h3>
+            </header>
+            <p class="era-text">Réaction à l'industrialisation, l'Art nouveau puise dans les formes végétales et les courbes organiques. Fer forgé, céramique et verre s'unissent dans les entrées de métro et les immeubles d'Hector Guimard.</p>
+            <ul class="building-list">
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><path d="M12 54 q0 -20 10 -24 q-8 -4 -6 -14 M52 54 q0 -20 -10 -24 q8 -4 6 -14" fill="none" stroke="currentColor" stroke-width="3"/><ellipse cx="32" cy="18" rx="18" ry="5" fill="none" stroke="currentColor" stroke-width="3"/><path d="M14 30 h36" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Entrées du métropolitain <span class="tag">Paris</span></h4>
+                  <p>Dessinées par Hector Guimard dès 1900, ces édicules en fonte moulée aux formes végétales et lettrages sinueux sont devenus un emblème mondial de Paris et de l'Art nouveau.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Création :</strong> à partir de 1900 pour l'Exposition universelle</li>
+                      <li><strong>Matériau :</strong> fonte de fer moulée, verre</li>
+                      <li><strong>Aujourd'hui :</strong> une dizaine de « style Guimard » classés, dont Abbesses et Porte Dauphine</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><rect x="10" y="18" width="44" height="36" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 18 q22 -14 44 0" fill="none" stroke="currentColor" stroke-width="3"/><path d="M22 54 V34 q10 -8 20 0 V54" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Castel Béranger <span class="tag">Paris, 16<sup>e</sup></span></h4>
+                  <p>Premier grand immeuble parisien signé Hector Guimard, mêlant briques, céramique, fer forgé et pierre dans une façade asymétrique qui fit scandale avant de devenir une référence du style.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Construction :</strong> 1895-1898</li>
+                      <li><strong>Particularité :</strong> aucune ligne droite dominante, décor floral omniprésent</li>
+                      <li><strong>Aujourd'hui :</strong> immeuble d'habitation classé monument historique</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="era" data-era="moderne">
+          <div class="era-marker" aria-hidden="true"><span></span></div>
+          <div class="era-card">
+            <header class="era-head">
+              <span class="era-period">env. 1920 – 1970</span>
+              <h3>Moderne &amp; Art déco</h3>
+            </header>
+            <p class="era-text">Béton armé, acier et verre libèrent la forme des bâtiments. Le Corbusier théorise une architecture fonctionnaliste, tandis que l'Art déco habille Paris de géométrie élégante entre les deux guerres.</p>
+            <ul class="building-list">
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><rect x="10" y="30" width="44" height="6" fill="none" stroke="currentColor" stroke-width="3"/><rect x="16" y="16" width="8" height="14" fill="none" stroke="currentColor" stroke-width="2"/><rect x="28" y="16" width="8" height="14" fill="none" stroke="currentColor" stroke-width="2"/><rect x="40" y="16" width="8" height="14" fill="none" stroke="currentColor" stroke-width="2"/><rect x="10" y="36" width="6" height="18" fill="none" stroke="currentColor" stroke-width="2"/><rect x="48" y="36" width="6" height="18" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Villa Savoye <span class="tag">Poissy, Yvelines</span></h4>
+                  <p>Manifeste du Mouvement moderne signé Le Corbusier : pilotis, toit-terrasse, plan libre et fenêtres en bandeau y illustrent ses « cinq points de l'architecture moderne ».</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Construction :</strong> 1928-1931</li>
+                      <li><strong>Innovation :</strong> structure sur pilotis libérant le rez-de-chaussée</li>
+                      <li><strong>Aujourd'hui :</strong> UNESCO depuis 2016 (œuvre de Le Corbusier)</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><rect x="6" y="26" width="52" height="28" fill="none" stroke="currentColor" stroke-width="3"/><path d="M6 26 h52 M14 26 V16 M50 26 V16" stroke="currentColor" stroke-width="2"/><path d="M22 54 V38 h20 v16" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Palais de Tokyo &amp; Palais de Chaillot <span class="tag">Paris</span></h4>
+                  <p>Édifiés pour l'Exposition universelle de 1937, ces palais aux lignes sobres et monumentales, colonnades épurées et bas-reliefs, incarnent l'Art déco tardif appliqué à l'architecture publique.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Construction :</strong> 1935-1937</li>
+                      <li><strong>Usage aujourd'hui :</strong> centre d'art contemporain (Palais de Tokyo), musées (Chaillot)</li>
+                      <li><strong>Style :</strong> Art déco monumental</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="era" data-era="contemporain">
+          <div class="era-marker" aria-hidden="true"><span></span></div>
+          <div class="era-card">
+            <header class="era-head">
+              <span class="era-period">1970 – aujourd'hui</span>
+              <h3>Contemporain</h3>
+            </header>
+            <p class="era-text">Verre, acier et prouesses techniques dialoguent avec le patrimoine ancien. De Beaubourg à la Pyramide du Louvre, les architectes contemporains osent le contraste assumé au cœur des villes historiques.</p>
+            <ul class="building-list">
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><rect x="10" y="10" width="44" height="44" fill="none" stroke="currentColor" stroke-width="3"/><path d="M4 20 h56 M4 30 h56 M4 40 h56 M4 50 h56" stroke="currentColor" stroke-width="1.5"/><path d="M20 4 v56 M32 4 v56 M44 4 v56" stroke="currentColor" stroke-width="1.5"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Centre Pompidou <span class="tag">Paris</span></h4>
+                  <p>Renzo Piano et Richard Rogers retournent le bâtiment « à l'envers » : structure, tuyauteries colorées et circulations exposées en façade, dans un manifeste architectural inspiré du courant high-tech.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Construction :</strong> 1971-1977</li>
+                      <li><strong>Particularité :</strong> escalators tubulaires en façade offrant une vue panoramique</li>
+                      <li><strong>Aujourd'hui :</strong> musée national d'Art moderne, l'un des plus visités au monde</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><path d="M32 10 L54 50 H10 Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M32 10 V50 M20 30 H44" stroke="currentColor" stroke-width="1.5"/><rect x="4" y="50" width="56" height="6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Pyramide du Louvre <span class="tag">Paris</span></h4>
+                  <p>Voulue par François Mitterrand et conçue par Ieoh Ming Pei, cette pyramide de verre et d'acier crée un contraste saisissant avec le palais classique tout en devenant la nouvelle entrée emblématique du musée.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Inauguration :</strong> 1989</li>
+                      <li><strong>Dimensions :</strong> 21 mètres de haut, 673 losanges et triangles de verre</li>
+                      <li><strong>Aujourd'hui :</strong> entrée principale du musée du Louvre</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+              <li class="building">
+                <div class="building-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><path d="M8 50 q6 -30 24 -34 q18 4 24 34" fill="none" stroke="currentColor" stroke-width="3"/><path d="M14 50 q4 -22 18 -26 M50 50 q-4 -22 -18 -26" stroke="currentColor" stroke-width="1.5"/><rect x="4" y="50" width="56" height="6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="building-body">
+                  <h4>Fondation Louis Vuitton <span class="tag">Paris, Bois de Boulogne</span></h4>
+                  <p>Œuvre de Frank Gehry, ce vaisseau de verre aux voiles sculpturales illustre l'architecture contemporaine la plus audacieuse, entre prouesse numérique et geste artistique.</p>
+                  <details>
+                    <summary>En savoir plus</summary>
+                    <ul class="facts">
+                      <li><strong>Inauguration :</strong> 2014</li>
+                      <li><strong>Structure :</strong> 12 « voiles » de verre soutenues par une charpente en bois lamellé-collé</li>
+                      <li><strong>Aujourd'hui :</strong> musée d'art contemporain privé</li>
+                    </ul>
+                  </details>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP / REGIONS -->
+  <section class="map-section" id="carte">
+    <div class="container">
+      <h2 class="section-title">Un patrimoine réparti sur tout le territoire</h2>
+      <p class="section-sub">Chaque région a ses propres trésors architecturaux, façonnés par la géologie locale, le climat et l'histoire.</p>
+      <div class="region-grid">
+        <div class="region-card">
+          <h3>Île-de-France</h3>
+          <p>Berceau du gothique, cœur du pouvoir royal puis impérial : Paris, Versailles, Chartres à sa porte.</p>
+        </div>
+        <div class="region-card">
+          <h3>Val de Loire</h3>
+          <p>« Jardin de la France », terre des châteaux Renaissance en tuffeau blanc : Chambord, Chenonceau, Amboise.</p>
+        </div>
+        <div class="region-card">
+          <h3>Provence &amp; Occitanie</h3>
+          <p>L'empreinte romaine la plus dense de France : Nîmes, Arles, Orange, le Pont du Gard.</p>
+        </div>
+        <div class="region-card">
+          <h3>Bourgogne</h3>
+          <p>Terre de l'art roman monastique, de Cluny à Vézelay, sur les chemins de pèlerinage.</p>
+        </div>
+        <div class="region-card">
+          <h3>Alsace &amp; Nord</h3>
+          <p>Colombages germaniques, beffrois flamands et cathédrales de grès rose, influences transfrontalières.</p>
+        </div>
+        <div class="region-card">
+          <h3>Bretagne &amp; côtes</h3>
+          <p>Granit local, enclos paroissiaux et villes fortifiées comme Saint-Malo, façonnés par le vent et la mer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="a-propos">
+    <div class="container about-inner">
+      <h2 class="section-title">À propos de ce site</h2>
+      <p>« Pierres de France » retrace, à travers une sélection de monuments emblématiques, l'évolution des styles architecturaux qui ont façonné le paysage bâti français, de l'Antiquité à nos jours. Chaque époque est présentée avec son contexte historique, ses techniques de construction et ses édifices les plus représentatifs.</p>
+      <p>Ce projet est une base de départ : n'hésitez pas à l'enrichir avec vos propres monuments, régions ou anecdotes favorites.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Pierres de France — un voyage dans l'architecture française.</p>
+    <button id="backToTop" class="btn btn-ghost btn-small">Haut de page ↑</button>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
