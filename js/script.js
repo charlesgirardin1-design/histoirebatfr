@@ -50,17 +50,18 @@
     eras.forEach(function (era) { era.classList.add("in-view"); });
   }
 
-  // Filter chips
+  // Filter chips (works for the timeline's .era items and the gallery's [data-filterable] cards)
   var filterButtons = document.querySelectorAll(".chip");
+  var filterTargets = document.querySelectorAll(".era[data-era], [data-filterable][data-era]");
   filterButtons.forEach(function (btn) {
     btn.addEventListener("click", function () {
       filterButtons.forEach(function (b) { b.classList.remove("active"); });
       btn.classList.add("active");
       var filter = btn.getAttribute("data-filter");
-      eras.forEach(function (era) {
-        var match = filter === "all" || era.getAttribute("data-era") === filter;
-        era.classList.toggle("hidden-by-filter", !match);
-        if (match) era.classList.add("in-view");
+      filterTargets.forEach(function (target) {
+        var match = filter === "all" || target.getAttribute("data-era") === filter;
+        target.classList.toggle("hidden-by-filter", !match);
+        if (match) target.classList.add("in-view");
       });
     });
   });
