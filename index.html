@@ -10,6 +10,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.143.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.143.0/examples/jsm/"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -41,12 +49,10 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg" aria-hidden="true">
-      <svg viewBox="0 0 1200 400" preserveAspectRatio="none">
-        <polygon points="0,400 0,220 60,180 120,230 180,150 240,220 300,120 360,210 420,170 480,230 540,140 600,200 660,160 720,230 780,180 840,220 900,130 960,210 1020,170 1080,230 1140,190 1200,220 1200,400" fill="rgba(255,255,255,0.06)"/>
-        <polygon points="0,400 0,270 80,240 150,280 220,230 300,270 380,220 460,260 540,210 620,260 700,225 780,270 860,230 940,265 1020,220 1100,260 1200,240 1200,400" fill="rgba(255,255,255,0.10)"/>
-      </svg>
+    <div class="hero-tunnel" aria-hidden="true">
+      <canvas id="tunnelCanvas"></canvas>
     </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-content">
       <p class="hero-kicker">2000 ans d'architecture</p>
       <h1>L'histoire des bâtiments français, <span>pierre après pierre</span></h1>
@@ -699,5 +705,6 @@
 </footer>
 
 <script src="js/script.js"></script>
+<script type="module" src="js/tunnel-hero.js"></script>
 </body>
 </html>
