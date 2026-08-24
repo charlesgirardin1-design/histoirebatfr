@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tous les bâtiments — Pierres de France</title>
+<meta name="description" content="La liste complète des monuments français présentés sur Pierres de France, avec leur histoire, leurs dates clés et leurs illustrations.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;900&family=Inter:wght@400;500;600&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="../index.html#top" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="30" height="30"><path d="M24 4 L44 18 V22 H4 V18 Z" fill="currentColor"/><rect x="8" y="22" width="4" height="16" fill="currentColor"/><rect x="16" y="22" width="4" height="16" fill="currentColor"/><rect x="24" y="22" width="4" height="16" fill="currentColor"/><rect x="32" y="22" width="4" height="16" fill="currentColor"/><rect x="4" y="38" width="40" height="4" fill="currentColor"/></svg>
+      </span>
+      <span>Pierres de France</span>
+    </a>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navList" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="navList">
+        <li><a href="../index.html#frise">Frise chronologique</a></li>
+        <li><a href="index.html">Bâtiments</a></li>
+        <li><a href="../index.html#carte">Carte</a></li>
+        <li><a href="../index.html#a-propos">À propos</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="gallery-hero">
+    <div class="container">
+      <p class="hero-kicker">22 monuments</p>
+      <h1>Tous les bâtiments</h1>
+      <p class="section-sub">Explorez chaque édifice en détail : son histoire, son style, ses dates clés et son illustration.</p>
+      <div class="filters" id="filters" role="group" aria-label="Filtrer les époques">
+        <button class="chip active" data-filter="all">Tout voir</button>
+        <button class="chip" data-filter="antique">Antiquité gallo-romaine</button>
+        <button class="chip" data-filter="roman">Art roman</button>
+        <button class="chip" data-filter="gothique">Gothique</button>
+        <button class="chip" data-filter="renaissance">Renaissance</button>
+        <button class="chip" data-filter="classique">Classicisme &amp; Baroque</button>
+        <button class="chip" data-filter="neoclassique">Néoclassicisme</button>
+        <button class="chip" data-filter="haussmann">Haussmannien</button>
+        <button class="chip" data-filter="artnouveau">Art nouveau</button>
+        <button class="chip" data-filter="moderne">Moderne &amp; Art déco</button>
+        <button class="chip" data-filter="contemporain">Contemporain</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <div class="container gallery-grid" id="galleryGrid">
+      <a class="gallery-card" data-filterable data-era="antique" href="arenes-de-nimes.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/arenes-de-nimes.jpg" alt="Arènes de Nîmes" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Antiquité gallo-romaine</span>
+            <h3>Arènes de Nîmes</h3>
+            <p>Nîmes, Gard</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="antique" href="pont-du-gard.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/pont-du-gard.jpg" alt="Pont du Gard" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Antiquité gallo-romaine</span>
+            <h3>Pont du Gard</h3>
+            <p>Vers-Pont-du-Gard, Gard</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="roman" href="basilique-vezelay.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/basilique-vezelay.jpg" alt="Basilique Sainte-Marie-Madeleine" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Art roman</span>
+            <h3>Basilique Sainte-Marie-Madeleine</h3>
+            <p>Vézelay, Yonne</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="roman" href="abbaye-cluny.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/abbaye-cluny.jpg" alt="Abbaye de Cluny" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Art roman</span>
+            <h3>Abbaye de Cluny</h3>
+            <p>Cluny, Saône-et-Loire</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="gothique" href="notre-dame-paris.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/notre-dame-paris.jpg" alt="Cathédrale Notre-Dame de Paris" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Gothique</span>
+            <h3>Cathédrale Notre-Dame de Paris</h3>
+            <p>Paris</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="gothique" href="cathedrale-chartres.html">
+          <div class="gallery-card-illustration"><svg class="scene-svg scene-svg-small" viewBox="0 0 400 260" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="var(--scene-sky-top)"/>
+      <stop offset="100%" stop-color="var(--scene-sky-bottom)"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="400" height="260" fill="url(#sky)"/>
+  <circle cx="336" cy="46" r="26" fill="var(--scene-sun)" opacity="0.55"/>
+  <rect x="0" y="220" width="400" height="40" fill="var(--scene-ground)"/>
+  <line x1="0" y1="220" x2="400" y2="220" stroke="var(--scene-groundline)" stroke-width="2"/>
+  <g transform="translate(104,28) scale(3)" fill="none" stroke="var(--scene-ink)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 54 V24 L16 6 L26 24 V54" fill="none" stroke="currentColor" stroke-width="3"/><path d="M26 54 V16 L34 2 L42 16 V54" fill="none" stroke="currentColor" stroke-width="3"/><path d="M42 54 V24 L52 6 L58 24 V54" fill="none" stroke="currentColor" stroke-width="3"/>
+  </g>
+</svg></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Gothique</span>
+            <h3>Cathédrale de Chartres</h3>
+            <p>Chartres, Eure-et-Loir</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="gothique" href="cathedrale-amiens.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/cathedrale-amiens.jpg" alt="Cathédrale Notre-Dame d&#x27;Amiens" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Gothique</span>
+            <h3>Cathédrale Notre-Dame d'Amiens</h3>
+            <p>Amiens, Somme</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="renaissance" href="chateau-chambord.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/chateau-chambord.jpg" alt="Château de Chambord" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Renaissance</span>
+            <h3>Château de Chambord</h3>
+            <p>Chambord, Loir-et-Cher</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="renaissance" href="chateau-chenonceau.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/chateau-chenonceau.jpg" alt="Château de Chenonceau" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Renaissance</span>
+            <h3>Château de Chenonceau</h3>
+            <p>Chenonceaux, Indre-et-Loire</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="classique" href="chateau-versailles.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/chateau-versailles.jpg" alt="Château de Versailles" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Classicisme &amp; Baroque</span>
+            <h3>Château de Versailles</h3>
+            <p>Versailles, Yvelines</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="classique" href="les-invalides.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/les-invalides.jpg" alt="Les Invalides" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Classicisme &amp; Baroque</span>
+            <h3>Les Invalides</h3>
+            <p>Paris</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="neoclassique" href="pantheon.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/pantheon.jpg" alt="Le Panthéon" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Néoclassicisme</span>
+            <h3>Le Panthéon</h3>
+            <p>Paris</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="neoclassique" href="arc-de-triomphe.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/arc-de-triomphe.jpg" alt="Arc de Triomphe" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Néoclassicisme</span>
+            <h3>Arc de Triomphe</h3>
+            <p>Paris</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="haussmann" href="immeubles-haussmanniens.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/immeubles-haussmanniens.jpg" alt="Les immeubles haussmanniens" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Haussmannien</span>
+            <h3>Les immeubles haussmanniens</h3>
+            <p>Paris et grandes villes</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="haussmann" href="opera-garnier.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/opera-garnier.jpg" alt="Opéra Garnier" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Haussmannien</span>
+            <h3>Opéra Garnier</h3>
+            <p>Paris</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="artnouveau" href="metro-guimard.html">
+          <div class="gallery-card-illustration"><svg class="scene-svg scene-svg-small" viewBox="0 0 400 260" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="var(--scene-sky-top)"/>
+      <stop offset="100%" stop-color="var(--scene-sky-bottom)"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="400" height="260" fill="url(#sky)"/>
+  <circle cx="336" cy="46" r="26" fill="var(--scene-sun)" opacity="0.55"/>
+  <rect x="0" y="220" width="400" height="40" fill="var(--scene-ground)"/>
+  <line x1="0" y1="220" x2="400" y2="220" stroke="var(--scene-groundline)" stroke-width="2"/>
+  <g transform="translate(104,28) scale(3)" fill="none" stroke="var(--scene-ink)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 54 q0 -20 10 -24 q-8 -4 -6 -14 M52 54 q0 -20 -10 -24 q8 -4 6 -14" fill="none" stroke="currentColor" stroke-width="3"/><ellipse cx="32" cy="18" rx="18" ry="5" fill="none" stroke="currentColor" stroke-width="3"/><path d="M14 30 h36" stroke="currentColor" stroke-width="2"/>
+  </g>
+</svg></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Art nouveau</span>
+            <h3>Entrées du métropolitain</h3>
+            <p>Paris</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="artnouveau" href="castel-beranger.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/castel-beranger.jpg" alt="Castel Béranger" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Art nouveau</span>
+            <h3>Castel Béranger</h3>
+            <p>Paris, 16e arrondissement</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="moderne" href="villa-savoye.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/villa-savoye.jpg" alt="Villa Savoye" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Moderne &amp; Art déco</span>
+            <h3>Villa Savoye</h3>
+            <p>Poissy, Yvelines</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="moderne" href="palais-tokyo-chaillot.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/palais-tokyo-chaillot.jpg" alt="Palais de Tokyo &amp;amp; Palais de Chaillot" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Moderne &amp; Art déco</span>
+            <h3>Palais de Tokyo &amp; Palais de Chaillot</h3>
+            <p>Paris</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="contemporain" href="centre-pompidou.html">
+          <div class="gallery-card-illustration"><svg class="scene-svg scene-svg-small" viewBox="0 0 400 260" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="var(--scene-sky-top)"/>
+      <stop offset="100%" stop-color="var(--scene-sky-bottom)"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="400" height="260" fill="url(#sky)"/>
+  <circle cx="336" cy="46" r="26" fill="var(--scene-sun)" opacity="0.55"/>
+  <rect x="0" y="220" width="400" height="40" fill="var(--scene-ground)"/>
+  <line x1="0" y1="220" x2="400" y2="220" stroke="var(--scene-groundline)" stroke-width="2"/>
+  <g transform="translate(104,28) scale(3)" fill="none" stroke="var(--scene-ink)" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="10" y="10" width="44" height="44" fill="none" stroke="currentColor" stroke-width="3"/><path d="M4 20 h56 M4 30 h56 M4 40 h56 M4 50 h56" stroke="currentColor" stroke-width="1.5"/><path d="M20 4 v56 M32 4 v56 M44 4 v56" stroke="currentColor" stroke-width="1.5"/>
+  </g>
+</svg></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Contemporain</span>
+            <h3>Centre Pompidou</h3>
+            <p>Paris</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="contemporain" href="pyramide-louvre.html">
+          <div class="gallery-card-illustration"><img src="../images/batiments/pyramide-louvre.jpg" alt="Pyramide du Louvre" loading="lazy"></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Contemporain</span>
+            <h3>Pyramide du Louvre</h3>
+            <p>Paris</p>
+          </div>
+        </a>
+<a class="gallery-card" data-filterable data-era="contemporain" href="fondation-louis-vuitton.html">
+          <div class="gallery-card-illustration"><svg class="scene-svg scene-svg-small" viewBox="0 0 400 260" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="var(--scene-sky-top)"/>
+      <stop offset="100%" stop-color="var(--scene-sky-bottom)"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="400" height="260" fill="url(#sky)"/>
+  <circle cx="336" cy="46" r="26" fill="var(--scene-sun)" opacity="0.55"/>
+  <rect x="0" y="220" width="400" height="40" fill="var(--scene-ground)"/>
+  <line x1="0" y1="220" x2="400" y2="220" stroke="var(--scene-groundline)" stroke-width="2"/>
+  <g transform="translate(104,28) scale(3)" fill="none" stroke="var(--scene-ink)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 50 q6 -30 24 -34 q18 4 24 34" fill="none" stroke="currentColor" stroke-width="3"/><path d="M14 50 q4 -22 18 -26 M50 50 q-4 -22 -18 -26" stroke="currentColor" stroke-width="1.5"/><rect x="4" y="50" width="56" height="6" fill="none" stroke="currentColor" stroke-width="2"/>
+  </g>
+</svg></div>
+          <div class="gallery-card-body">
+            <span class="era-badge era-badge-small">Contemporain</span>
+            <h3>Fondation Louis Vuitton</h3>
+            <p>Paris, Bois de Boulogne</p>
+          </div>
+        </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Pierres de France — un voyage dans l'architecture française.</p>
+    <button id="backToTop" class="btn btn-ghost btn-small">Haut de page ↑</button>
+  </div>
+</footer>
+
+<script src="../js/script.js"></script>
+</body>
+</html>
