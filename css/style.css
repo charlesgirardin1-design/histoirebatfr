@@ -1,24 +1,28 @@
 /* ===== Design tokens ===== */
 :root {
-  --stone-50: #faf7f2;
-  --stone-100: #f2ece1;
-  --stone-200: #e6dcc9;
-  --stone-300: #d3c3a5;
-  --ink-900: #241f18;
-  --ink-700: #4a4238;
-  --ink-500: #756a5b;
-  --gold-500: #b8863a;
-  --gold-600: #98692a;
-  --blue-900: #1e2a4a;
-  --blue-700: #2c3e66;
+  --stone-50: #050509;
+  --stone-100: #101018;
+  --stone-200: rgba(255,255,255,0.12);
+  --stone-300: rgba(255,255,255,0.22);
+  --ink-900: #f4f1ea;
+  --ink-700: #c7c2b6;
+  --ink-500: #948e81;
+  --gold-500: #d9a446;
+  --gold-600: #b8863a;
+  --blue-900: #0b0a16;
+  --blue-700: #241d3f;
   --white: #ffffff;
+  --surface: #0d0d15;
+  --surface-2: #121219;
+  --on-accent: #1c1408;
+  --accent-violet: #b7a6ff;
   --radius-lg: 18px;
   --radius-md: 12px;
   --radius-sm: 8px;
-  --shadow-soft: 0 10px 30px rgba(36, 31, 24, 0.08);
-  --shadow-strong: 0 20px 50px rgba(36, 31, 24, 0.16);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-strong: 0 20px 50px rgba(0, 0, 0, 0.55);
   --font-display: "Playfair Display", Georgia, serif;
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "Onest", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --header-h: 72px;
 }
 
@@ -51,7 +55,7 @@ a { color: inherit; }
   top: 0; left: 0;
   height: 3px;
   width: 0%;
-  background: linear-gradient(90deg, var(--gold-500), var(--blue-700));
+  background: linear-gradient(90deg, var(--gold-500), var(--accent-violet));
   z-index: 1000;
   transition: width 0.1s linear;
 }
@@ -64,7 +68,7 @@ a { color: inherit; }
   height: var(--header-h);
   display: flex;
   align-items: center;
-  background: rgba(250, 247, 242, 0.85);
+  background: rgba(8, 8, 13, 0.72);
   backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--stone-200);
   transition: box-shadow 0.25s ease;
@@ -156,7 +160,7 @@ a { color: inherit; }
 .btn-primary {
   background: var(--gold-500);
   color: var(--white);
-  box-shadow: 0 8px 20px rgba(184, 134, 58, 0.35);
+  box-shadow: 0 8px 20px rgba(217, 164, 70, 0.4);
 }
 .btn-primary:hover { background: var(--gold-600); }
 .btn-ghost {
@@ -350,7 +354,7 @@ a { color: inherit; }
 }
 .chip {
   border: 1px solid var(--stone-300);
-  background: var(--white);
+  background: var(--surface);
   color: var(--ink-700);
   padding: 9px 18px;
   border-radius: 999px;
@@ -361,9 +365,9 @@ a { color: inherit; }
 }
 .chip:hover { border-color: var(--gold-500); color: var(--gold-600); }
 .chip.active {
-  background: var(--ink-900);
-  border-color: var(--ink-900);
-  color: var(--white);
+  background: var(--gold-500);
+  border-color: var(--gold-500);
+  color: var(--on-accent);
 }
 
 /* ===== Timeline ===== */
@@ -414,7 +418,7 @@ a { color: inherit; }
 }
 
 .era-card {
-  background: var(--white);
+  background: var(--surface);
   border-radius: var(--radius-lg);
   padding: 30px 32px;
   box-shadow: var(--shadow-soft);
@@ -552,7 +556,7 @@ details[open] summary::before { content: "\2212"; }
   gap: 20px;
 }
 .region-card {
-  background: var(--white);
+  background: var(--surface);
   border-radius: var(--radius-md);
   padding: 24px;
   border: 1px solid var(--stone-200);
@@ -604,13 +608,13 @@ details[open] summary::before { content: "\2212"; }
   color: var(--ink-700);
 }
 .credits-list li { break-inside: avoid; margin-bottom: 6px; }
-.credits-list a { color: var(--blue-700); }
+.credits-list a { color: var(--accent-violet); }
 @media (max-width: 640px) { .credits-list { columns: 1; } }
 
 /* ===== Footer ===== */
 .site-footer {
-  background: var(--ink-900);
-  color: var(--stone-200);
+  background: var(--surface-2);
+  color: var(--ink-700);
   padding: 30px 0;
 }
 .footer-inner {
@@ -621,7 +625,7 @@ details[open] summary::before { content: "\2212"; }
   gap: 16px;
 }
 .footer-inner p { margin: 0; font-size: 0.88rem; color: rgba(255,255,255,0.65); }
-.site-footer .btn-ghost { color: var(--stone-200); border-color: rgba(255,255,255,0.25); }
+.site-footer .btn-ghost { color: var(--ink-700); border-color: rgba(255,255,255,0.25); }
 .site-footer .btn-ghost:hover { background: rgba(255,255,255,0.08); }
 
 /* ===== Responsive ===== */
@@ -659,11 +663,11 @@ details[open] summary::before { content: "\2212"; }
 
 /* ===== Illustration scenes (shared) ===== */
 :root {
-  --scene-sky-top: #dce6f2;
-  --scene-sky-bottom: #f3ede0;
+  --scene-sky-top: #0c0b18;
+  --scene-sky-bottom: #1c1830;
   --scene-sun: var(--gold-500);
-  --scene-ground: #e6dcc9;
-  --scene-groundline: #c9b98f;
+  --scene-ground: #14121f;
+  --scene-groundline: rgba(255,255,255,0.18);
   --scene-ink: var(--ink-900);
 }
 .scene-svg { width: 100%; height: 100%; display: block; }
@@ -683,7 +687,7 @@ details[open] summary::before { content: "\2212"; }
 
 /* ===== Building hero ===== */
 .building-hero {
-  background: linear-gradient(160deg, var(--blue-900) 0%, var(--blue-700) 60%, #3a4f7a 100%);
+  background: linear-gradient(160deg, var(--blue-900) 0%, var(--blue-700) 60%, #362a5e 100%);
   padding: 100px 24px 0;
   color: var(--white);
   overflow: hidden;
@@ -751,7 +755,7 @@ details[open] summary::before { content: "\2212"; }
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.03em;
-  color: var(--ink-900);
+  color: var(--on-accent);
   background: var(--gold-500);
   padding: 5px 14px;
   border-radius: 999px;
@@ -787,7 +791,7 @@ details[open] summary::before { content: "\2212"; }
 .building-main p:last-child { margin-bottom: 0; }
 
 .building-aside {
-  background: var(--white);
+  background: var(--surface);
   border: 1px solid var(--stone-200);
   border-radius: var(--radius-md);
   padding: 26px;
@@ -835,7 +839,7 @@ details[open] summary::before { content: "\2212"; }
 .pager-link {
   text-decoration: none;
   color: var(--ink-900);
-  background: var(--white);
+  background: var(--surface);
   border: 1px solid var(--stone-200);
   border-radius: var(--radius-md);
   padding: 14px 20px;
@@ -861,7 +865,7 @@ details[open] summary::before { content: "\2212"; }
 
 /* ===== Gallery ===== */
 .gallery-hero {
-  background: linear-gradient(160deg, var(--blue-900) 0%, var(--blue-700) 60%, #3a4f7a 100%);
+  background: linear-gradient(160deg, var(--blue-900) 0%, var(--blue-700) 60%, #362a5e 100%);
   color: var(--white);
   padding: 100px 24px 44px;
   text-align: center;
@@ -875,7 +879,7 @@ details[open] summary::before { content: "\2212"; }
 .gallery-hero .section-sub { color: rgba(255,255,255,0.8); }
 .gallery-hero .chip { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.25); color: var(--white); }
 .gallery-hero .chip:hover { border-color: var(--gold-500); color: var(--gold-500); }
-.gallery-hero .chip.active { background: var(--gold-500); border-color: var(--gold-500); color: var(--ink-900); }
+.gallery-hero .chip.active { background: var(--gold-500); border-color: var(--gold-500); color: var(--on-accent); }
 
 .gallery-section { padding: 50px 0 90px; }
 .gallery-grid {
@@ -887,7 +891,7 @@ details[open] summary::before { content: "\2212"; }
   display: block;
   text-decoration: none;
   color: inherit;
-  background: var(--white);
+  background: var(--surface);
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--stone-200);
@@ -928,7 +932,7 @@ details[open] summary::before { content: "\2212"; }
   margin-top: 10px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--blue-700);
+  color: var(--accent-violet);
   text-decoration: none;
 }
 .building-link:hover { text-decoration: underline; }
