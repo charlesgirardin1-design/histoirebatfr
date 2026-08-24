@@ -1,28 +1,42 @@
-// Scroll-driven "showreel" hero: chrome star -> search mockup -> neon panels -> building grid.
+// Scroll-driven "showreel" hero: chrome star -> light hero card -> card fan ->
+// dark manifesto -> portfolio tiles -> floating thumbnails -> finale star + CTA.
 // Pure CSS 3D transforms + a Canvas 2D particle field, scoped to the hero's own scroll range.
 (function () {
   "use strict";
 
   var heroSection = document.querySelector(".hero");
   var stageTrack = document.getElementById("heroStageTrack");
-  var stage = heroSection && heroSection.querySelector(".hero-stage");
+  var stage = document.getElementById("heroStage");
   var canvas = document.getElementById("showreelParticles");
   if (!heroSection || !stageTrack || !stage || !canvas) return;
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var mobileMq = window.matchMedia("(max-width: 780px)");
+  var isMobile = mobileMq.matches;
+  var onMobileChange = function (e) { isMobile = e.matches; };
+  if (mobileMq.addEventListener) mobileMq.addEventListener("change", onMobileChange);
+  else if (mobileMq.addListener) mobileMq.addListener(onMobileChange);
   var ctx = canvas.getContext("2d");
 
-  var heroContent = document.getElementById("heroContent");
-  var scrollHint = document.getElementById("heroScrollHint");
-  var ticks = document.querySelectorAll("#heroProgressTicks .tick");
-
-  var acts = ["hact0", "hact1", "hact2", "hact3"].map(function (id) { return document.getElementById(id); });
+  var acts = [0, 1, 2, 3, 4, 5, 6].map(function (i) { return document.getElementById("hact" + i); });
   var starWrap = document.getElementById("heroStarWrap");
-  var device = document.getElementById("heroDevice");
-  var panelA = document.getElementById("heroPanelA");
-  var panelB = document.getElementById("heroPanelB");
-  var gridWrap = document.getElementById("heroGridWrap");
-  var tiles = gridWrap.querySelectorAll(".tile");
+  var hact1Copy = document.querySelector("#hact1 .hact1-copy");
+  var photoCard = document.getElementById("heroPhotoCard");
+  var fanCards = document.querySelectorAll("#heroFanWrap .fan-card");
+  var hact2CtaEl = document.querySelector("#hact2 .hact2-cta");
+  var hact3Big = document.querySelector("#hact3 .hact3-big");
+  var hact3Para = document.querySelector("#hact3 .hact3-para");
+  var hact3Cases = document.querySelector("#hact3 .hact3-cases");
+  var portfolioTiles = document.querySelectorAll("#heroPortfolioWrap .portfolio-tile");
+  var floatThumbs = document.querySelectorAll("#heroFloatGrid .float-thumb");
+  var finaleStarWrap = document.getElementById("heroFinaleStarWrap");
+  var heroContentEl = document.getElementById("heroContent");
+  var ticksNav = document.getElementById("heroProgressTicks");
+  var ticks = ticksNav ? ticksNav.querySelectorAll(".tick") : [];
+  var scrollHint = document.getElementById("heroScrollHint");
+
+  var DARK = [21, 8, 41];   // #150829
+  var LIGHT = [253, 252, 249]; // #fdfcf9
 
   /* ---------------- ambient particle field ---------------- */
   var particles = [];
@@ -61,7 +75,7 @@
       if (p.x < -10) p.x = W + 10;
       if (p.x > W + 10) p.x = -10;
       var tw = 0.55 + 0.45 * Math.sin(t * 0.0012 + p.tw);
-      var alpha = 0.2 * p.depth * tw;
+      var alpha = 0.22 * p.depth * tw;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = "rgba(200,180,255," + alpha.toFixed(3) + ")";
@@ -98,62 +112,100 @@
   function clamp01(v) { return Math.max(0, Math.min(1, v)); }
   function localProgress(p, start, end) { return clamp01((p - start) / (end - start)); }
   function ease(t) { return t * t * (3 - 2 * t); }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function fadeBand(p, inStart, inEnd, outStart, outEnd) {
+    return clamp01(ease(localProgress(p, inStart, inEnd)) - ease(localProgress(p, outStart, outEnd)));
+  }
 
   function applyActs(p) {
-    var pHero = localProgress(p, 0.00, 0.16);
-    var p0 = localProgress(p, 0.00, 0.24);
-    var p1 = localProgress(p, 0.16, 0.50);
-    var p2a = localProgress(p, 0.42, 0.59);
-    var p2b = localProgress(p, 0.59, 0.76);
-    var p3 = localProgress(p, 0.72, 1.00);
-
-    var e0 = ease(p0), e1 = ease(p1), e3 = ease(p3);
     var tiltX = reduceMotion ? 0 : pointer.y * -6;
     var tiltY = reduceMotion ? 0 : pointer.x * 6;
 
-    // hero readable content fades out early, giving way to the showreel
-    var heroFade = 1 - ease(pHero);
-    heroContent.style.opacity = String(heroFade);
-    heroContent.style.transform = "translateX(-50%) translateY(" + (-(1 - heroFade) * 28) + "px) scale(" + (1 - (1 - heroFade) * 0.04) + ")";
-    heroContent.style.pointerEvents = heroFade < 0.15 ? "none" : "auto";
+    // background lightness: dark -> light (acts 1-2) -> dark
+    var lightUp = ease(localProgress(p, 0.05, 0.12));
+    var lightDown = ease(localProgress(p, 0.36, 0.45));
+    var lightness = clamp01(lightUp - lightDown);
+    var bg = [
+      Math.round(lerp(DARK[0], LIGHT[0], lightness)),
+      Math.round(lerp(DARK[1], LIGHT[1], lightness)),
+      Math.round(lerp(DARK[2], LIGHT[2], lightness))
+    ];
+    stage.style.backgroundColor = "rgb(" + bg[0] + "," + bg[1] + "," + bg[2] + ")";
+    canvas.style.opacity = String(clamp01(1 - lightness * 1.3));
+    if (ticksNav) ticksNav.classList.toggle("on-light", lightness > 0.5);
 
-    // act 0 — chrome star
-    acts[0].style.opacity = String(1 - Math.min(1, e1 * 1.15));
-    var starRot = p * 220;
-    var starScale = 1 - e0 * 0.2 - Math.min(0.6, e1 * 0.6);
+    // act 0 — chrome star intro
+    var op0 = 1 - ease(localProgress(p, 0.06, 0.12));
+    acts[0].style.opacity = String(op0);
     starWrap.style.transform =
-      "translate(" + (-e1 * 24) + "vw, " + (-e1 * 12) + "vh) translateZ(" + (-e1 * 600) + "px) " +
-      "rotateZ(" + starRot + "deg) rotateX(" + (tiltX + e0 * 8) + "deg) rotateY(" + (tiltY - e0 * 8) + "deg) " +
-      "scale(" + Math.max(0.3, starScale) + ")";
+      "rotateZ(" + (p * 260) + "deg) rotateX(" + tiltX + "deg) rotateY(" + tiltY + "deg) scale(" + (1 - ease(localProgress(p, 0, 0.09)) * 0.2) + ")";
 
-    // act 1 — device mockup rises, settles, dives forward
-    acts[1].style.opacity = String(Math.min(e1 * 1.4, 1) * (1 - Math.max(0, localProgress(p, 0.46, 0.58))));
-    var deviceZ = -650 + e1 * 650 - ease(localProgress(p, 0.44, 0.58)) * 850;
-    var deviceRotY = -24 + e1 * 24 + tiltY * 0.6;
-    var deviceRotX = 9 - e1 * 9 + tiltX * 0.6;
-    device.style.transform = "translateZ(" + deviceZ + "px) translateY(" + (36 - e1 * 36) + "px) rotateY(" + deviceRotY + "deg) rotateX(" + deviceRotX + "deg)";
+    // act 1 — light hero + tilted photo card
+    var op1 = fadeBand(p, 0.03, 0.11, 0.21, 0.28);
+    acts[1].style.opacity = String(op1);
+    var in1 = ease(localProgress(p, 0.03, 0.12));
+    var out1 = ease(localProgress(p, 0.21, 0.28));
+    hact1Copy.style.transform = "translateY(" + ((1 - in1) * 26) + "px)";
+    if (isMobile) {
+      photoCard.style.transform =
+        "translateY(" + ((1 - in1) * 18 - out1 * 40) + "px) scale(" + (0.94 + in1 * 0.06) + ")";
+    } else {
+      photoCard.style.transform =
+        "translateY(-50%) translateZ(" + (-260 + in1 * 260 - out1 * 520) + "px) " +
+        "rotateY(" + (22 - in1 * 22 + tiltY + out1 * 30) + "deg) rotateX(" + (-9 + in1 * 9 + tiltX) + "deg)";
+    }
 
-    // act 2 — two neon panels flying toward camera
-    var a2 = ease(p2a), b2 = ease(p2b);
-    acts[2].style.opacity = String(Math.min(1, e1 * 1.2) - Math.max(0, ease(localProgress(p, 0.72, 0.80))));
-    panelA.style.opacity = String(a2 < 1 ? Math.sin(Math.min(a2, 1) * Math.PI) : 0);
-    panelA.style.transform = "translateZ(" + (-480 + a2 * 860) + "px) rotateX(" + (16 - a2 * 16 + tiltX) + "deg) rotateY(" + (-13 + a2 * 13 + tiltY) + "deg)";
-    panelB.style.opacity = String(b2 > 0 ? Math.sin(Math.min(b2, 1) * Math.PI) : 0);
-    panelB.style.transform = "translateZ(" + (-480 + b2 * 860) + "px) rotateX(" + (-15 + b2 * 15 + tiltX) + "deg) rotateY(" + (15 - b2 * 15 + tiltY) + "deg)";
+    // act 2 — light card fan
+    var op2 = fadeBand(p, 0.24, 0.32, 0.40, 0.46);
+    acts[2].style.opacity = String(op2);
+    var in2 = ease(localProgress(p, 0.24, 0.33));
+    fanCards.forEach(function (card, i) {
+      var spread = i - 1; // -1, 0, 1
+      var lift = i === 1 ? in2 * 34 : 0;
+      card.style.transform =
+        "translateX(" + (spread * 46 * in2) + "px) translateZ(" + (lift - out1 * 0) + "px) " +
+        "rotateZ(" + (spread * 9 * in2) + "deg) rotateY(" + (tiltY * 0.6) + "deg)";
+    });
+    if (hact2CtaEl) hact2CtaEl.style.transform = "translateX(-50%) translateY(" + ((1 - in2) * 16) + "px)";
 
-    // act 3 — building grid assembles and gently floats
-    acts[3].style.opacity = String(e3);
-    gridWrap.style.transform = "translateZ(" + (-240 + e3 * 240) + "px) translateY(" + (56 - e3 * 56) + "px) rotateX(" + (11 - e3 * 11 + tiltX * 0.4) + "deg)";
-    tiles.forEach(function (tile, i) {
-      var f = Math.sin(p * 6 + i) * 5;
-      var d = Math.cos(p * 4 + i * 1.4) * 3;
-      tile.style.transform = "translateZ(" + (i % 3 * 5) + "px) translateY(" + (f * e3) + "px) rotateZ(" + (d * e3 * 0.35) + "deg)";
+    // act 3 — dark manifesto
+    var op3 = fadeBand(p, 0.44, 0.52, 0.60, 0.66);
+    acts[3].style.opacity = String(op3);
+    var in3 = ease(localProgress(p, 0.44, 0.53));
+    hact3Big.style.transform = "translateX(" + ((1 - in3) * 50) + "px)";
+    hact3Para.style.transform = "translateY(" + ((1 - in3) * 16) + "px)";
+    hact3Cases.style.transform = "translateY(" + ((1 - in3) * 22) + "px)";
+
+    // act 4 — dark portfolio, big tiles
+    var op4 = fadeBand(p, 0.60, 0.68, 0.76, 0.82);
+    acts[4].style.opacity = String(op4);
+    var in4 = ease(localProgress(p, 0.60, 0.70));
+    portfolioTiles.forEach(function (tile, i) {
+      tile.style.transform = "translateY(" + ((1 - in4) * 60) + "px) translateZ(" + (i * 12) + "px) rotateY(" + (tiltY * 0.4) + "deg)";
     });
 
+    // act 5 — floating thumbnails
+    var op5 = fadeBand(p, 0.76, 0.84, 0.90, 0.94);
+    acts[5].style.opacity = String(op5);
+    var in5 = ease(localProgress(p, 0.76, 0.85));
+    floatThumbs.forEach(function (thumb, i) {
+      var f = Math.sin(p * 8 + i * 1.3) * 8;
+      thumb.style.transform =
+        "translateY(" + (f * in5 + (1 - in5) * 34) + "px) translateZ(" + ((i % 3) * 20) + "px) " +
+        "scale(" + (0.75 + in5 * 0.25) + ")";
+    });
+
+    // act 6 — finale: big star + real headline/CTA/stats
+    var in6 = ease(localProgress(p, 0.90, 1.0));
+    acts[6].style.opacity = String(in6);
+    finaleStarWrap.style.transform = "translateY(-50%) rotateZ(" + (p * 140) + "deg) scale(" + (0.7 + in6 * 0.3) + ")";
+    heroContentEl.style.opacity = String(in6);
+    heroContentEl.style.transform = "translateX(-50%) scale(" + (0.95 + in6 * 0.05) + ")";
+
     // progress ticks + scroll hint
-    var activeIdx = p < 0.18 ? 0 : p < 0.5 ? 1 : p < 0.78 ? 2 : 3;
+    var activeIdx = p < 0.10 ? 0 : p < 0.30 ? 1 : p < 0.46 ? 2 : p < 0.62 ? 3 : p < 0.78 ? 4 : p < 0.90 ? 5 : 6;
     ticks.forEach(function (t, i) { t.classList.toggle("active", i === activeIdx); });
-    if (scrollHint) scrollHint.style.opacity = String(p < 0.03 ? 1 : Math.max(0, 1 - p * 14));
+    if (scrollHint) scrollHint.style.opacity = String(p < 0.03 ? 1 : Math.max(0, 1 - p * 20));
   }
 
   applyActs(scrollTarget);

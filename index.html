@@ -42,11 +42,12 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-stage-track" id="heroStageTrack">
-      <div class="hero-stage">
+      <div class="hero-stage" id="heroStage">
+        <div class="stage-ambient" aria-hidden="true"></div>
         <canvas id="showreelParticles" aria-hidden="true"></canvas>
         <div class="hero-stage-inner" id="heroStageInner">
 
-          <!-- act 0 — chrome star -->
+          <!-- act 0 — chrome star intro -->
           <div class="hact" id="hact0">
             <div class="star-wrap" id="heroStarWrap">
               <div class="star-halo"></div>
@@ -66,62 +67,105 @@
             </div>
           </div>
 
-          <!-- act 1 — device mockup -->
+          <!-- act 1 — light hero with tilted photo card -->
           <div class="hact" id="hact1">
-            <div class="hact1-copy">
-              <h2>Pierre après<br>pierre.</h2>
-              <p>Chaque bâtiment raconte un siècle. Cliquez, explorez, remontez le temps.</p>
-            </div>
-            <div class="device" id="heroDevice">
-              <div class="device-bar"><div class="device-dots"><span></span><span></span><span></span></div></div>
-              <div class="device-screen">
-                <div class="device-skel" style="width:60%; height:10px;"></div>
-                <div class="device-skel" style="width:88%; height:10px;"></div>
-                <div class="device-skel" style="width:40%; height:10px;"></div>
-                <div class="device-prompt">
-                  <span>Rechercher : Notre-Dame de Paris…</span>
-                  <span class="send"><svg viewBox="0 0 24 24" fill="none"><circle cx="10" cy="10" r="6.5" stroke="#150220" stroke-width="2"/><path d="M19 19l-4.3-4.3" stroke="#150220" stroke-width="2" stroke-linecap="round"/></svg></span>
+            <div class="hact1-inner">
+              <div class="hact1-copy">
+                <p class="hact1-kicker">2000 ans d'architecture</p>
+                <h2>Pierre après <span>pierre.</span></h2>
+                <p>Des arènes gallo-romaines aux tours de verre contemporaines : découvrez comment la France a construit son visage à travers les siècles.</p>
+                <div class="hero-actions-light">
+                  <a href="#frise" class="btn btn-primary">Explorer la frise</a>
+                  <a href="batiments/index.html" class="btn btn-ghost-dark">Voir tous les bâtiments</a>
                 </div>
+              </div>
+              <div class="hero-photo-card" id="heroPhotoCard">
+                <img src="images/batiments/notre-dame-paris.jpg" alt="Cathédrale Notre-Dame de Paris" loading="eager">
+                <span class="card-caption">Gothique · Paris</span>
               </div>
             </div>
           </div>
 
-          <!-- act 2 — neon typographic panels -->
+          <!-- act 2 — light card fan -->
           <div class="hact" id="hact2">
-            <div class="neon-panel" id="heroPanelA"><h2>Deux mille<br>ans</h2></div>
-            <div class="neon-panel" id="heroPanelB"><h2>d'architecture</h2></div>
+            <p class="hact2-bg-text">Chaque bâtiment, une histoire</p>
+            <div class="fan-wrap" id="heroFanWrap">
+              <a class="fan-card" href="batiments/arenes-de-nimes.html" style="z-index:1"><img src="images/batiments/arenes-de-nimes.jpg" alt="Arènes de Nîmes" loading="lazy"><span class="fan-tag">Antiquité</span></a>
+              <a class="fan-card" href="batiments/chateau-chambord.html" style="z-index:2"><img src="images/batiments/chateau-chambord.jpg" alt="Château de Chambord" loading="lazy"><span class="fan-tag">Renaissance</span></a>
+              <a class="fan-card" href="batiments/pyramide-louvre.html" style="z-index:1"><img src="images/batiments/pyramide-louvre.jpg" alt="Pyramide du Louvre" loading="lazy"><span class="fan-tag">Contemporain</span></a>
+            </div>
+            <div class="hact2-cta"><a href="batiments/index.html">Explorer la collection →</a></div>
           </div>
 
-          <!-- act 3 — building grid -->
+          <!-- act 3 — dark manifesto -->
           <div class="hact" id="hact3">
-            <div class="hact3-heading"><h3>22 monuments, 10 époques.</h3></div>
-            <div class="grid-wrap" id="heroGridWrap">
-              <a class="tile wide" href="batiments/notre-dame-paris.html" style="background-image:url('images/batiments/notre-dame-paris.jpg')"><span class="tag mono">Gothique</span><span class="fig">Notre-Dame</span></a>
-              <a class="tile tall" href="batiments/chateau-chambord.html" style="background-image:url('images/batiments/chateau-chambord.jpg')"><span class="tag mono">Renaissance</span><span class="fig">Chambord</span></a>
-              <a class="tile" href="batiments/pyramide-louvre.html" style="background-image:url('images/batiments/pyramide-louvre.jpg')"><span class="tag mono">Contemporain</span><span class="fig">Le Louvre</span></a>
-              <a class="tile" href="batiments/opera-garnier.html" style="background-image:url('images/batiments/opera-garnier.jpg')"><span class="tag mono">Haussmannien</span><span class="fig">Opéra Garnier</span></a>
-              <a class="tile" href="batiments/villa-savoye.html" style="background-image:url('images/batiments/villa-savoye.jpg')"><span class="tag mono">Moderne</span><span class="fig">Villa Savoye</span></a>
-              <a class="tile wide" href="batiments/arc-de-triomphe.html" style="background-image:url('images/batiments/arc-de-triomphe.jpg')"><span class="tag mono">Néoclassique</span><span class="fig">Arc de Triomphe</span></a>
+            <div class="hact3-inner">
+              <svg class="hact3-star" viewBox="0 0 200 200" aria-hidden="true"><path d="M100 4 C104 66 112 88 168 100 C112 112 104 134 100 196 C96 134 88 112 32 100 C88 88 96 66 100 4 Z" fill="url(#heroChromeGrad)"/></svg>
+              <h3 class="hact3-big">Pierre<br>après pierre</h3>
+              <p class="hact3-para">Aucune rupture de style, aucune limite de siècle — juste une histoire qui n'a jamais cessé de se construire, jusqu'à aujourd'hui.</p>
+            </div>
+            <div class="hact3-cases">
+              <a class="case-card" href="batiments/notre-dame-paris.html">
+                <img src="images/batiments/notre-dame-paris.jpg" alt="">
+                <span class="case-text"><b>Notre-Dame</b><span>Gothique · 1163</span></span>
+              </a>
+              <a class="case-card" href="batiments/pyramide-louvre.html">
+                <img src="images/batiments/pyramide-louvre.jpg" alt="">
+                <span class="case-text"><b>Pyramide du Louvre</b><span>Contemporain · 1989</span></span>
+              </a>
             </div>
           </div>
 
-        </div>
-
-        <div class="hero-overlay" aria-hidden="true"></div>
-
-        <div class="hero-content" id="heroContent">
-          <p class="hero-kicker">2000 ans d'architecture</p>
-          <h1>L'histoire des bâtiments français, <span>pierre après pierre</span></h1>
-          <p class="hero-lede">Des arènes gallo-romaines aux flèches gothiques, des châteaux de la Renaissance aux tours de verre contemporaines : découvrez comment la France a construit son visage à travers les siècles.</p>
-          <div class="hero-actions">
-            <a href="#frise" class="btn btn-primary">Explorer la frise</a>
-            <a href="batiments/index.html" class="btn btn-ghost">Voir tous les bâtiments</a>
+          <!-- act 4 — dark portfolio, big tiles -->
+          <div class="hact" id="hact4">
+            <div class="portfolio-wrap" id="heroPortfolioWrap">
+              <a class="portfolio-tile" href="batiments/chateau-chambord.html">
+                <img src="images/batiments/chateau-chambord.jpg" alt="Château de Chambord" loading="lazy">
+                <span class="ptag">Renaissance · 1519</span>
+                <span class="pname">Chambord</span>
+              </a>
+              <a class="portfolio-tile" href="batiments/villa-savoye.html">
+                <img src="images/batiments/villa-savoye.jpg" alt="Villa Savoye" loading="lazy">
+                <span class="ptag">Moderne · 1931</span>
+                <span class="pname">Villa Savoye</span>
+              </a>
+            </div>
           </div>
-          <dl class="hero-stats">
-            <div><dt>10</dt><dd>grandes époques</dd></div>
-            <div><dt>2000+</dt><dd>ans d'histoire</dd></div>
-            <div><dt>22</dt><dd>monuments phares</dd></div>
-          </dl>
+
+          <!-- act 5 — floating thumbnails -->
+          <div class="hact" id="hact5">
+            <div class="float-grid" id="heroFloatGrid">
+              <a class="float-thumb" href="batiments/opera-garnier.html" style="top:4%; left:2%;"><img src="images/batiments/opera-garnier.jpg" alt="Opéra Garnier" loading="lazy"></a>
+              <a class="float-thumb" href="batiments/arc-de-triomphe.html" style="top:0%; left:38%;"><img src="images/batiments/arc-de-triomphe.jpg" alt="Arc de Triomphe" loading="lazy"></a>
+              <a class="float-thumb" href="batiments/chateau-versailles.html" style="top:16%; left:74%;"><img src="images/batiments/chateau-versailles.jpg" alt="Château de Versailles" loading="lazy"></a>
+              <a class="float-thumb" href="batiments/basilique-vezelay.html" style="top:48%; left:14%;"><img src="images/batiments/basilique-vezelay.jpg" alt="Basilique de Vézelay" loading="lazy"></a>
+              <a class="float-thumb" href="batiments/abbaye-cluny.html" style="top:54%; left:54%;"><img src="images/batiments/abbaye-cluny.jpg" alt="Abbaye de Cluny" loading="lazy"></a>
+              <a class="float-thumb" href="batiments/chateau-chenonceau.html" style="top:68%; left:84%;"><img src="images/batiments/chateau-chenonceau.jpg" alt="Château de Chenonceau" loading="lazy"></a>
+            </div>
+          </div>
+
+          <!-- act 6 — finale -->
+          <div class="hact" id="hact6">
+            <div class="hact6-star-wrap" id="heroFinaleStarWrap">
+              <div class="star-halo"></div>
+              <svg class="chrome-star" viewBox="0 0 200 200" style="width:100%; height:100%;"><path d="M100 4 C104 66 112 88 168 100 C112 112 104 134 100 196 C96 134 88 112 32 100 C88 88 96 66 100 4 Z" fill="url(#heroChromeGrad)" stroke="rgba(255,255,255,.5)" stroke-width="0.5"/></svg>
+            </div>
+            <div class="hero-content" id="heroContent">
+              <p class="hero-kicker">2000 ans d'architecture</p>
+              <h1>L'histoire des bâtiments français, <span>pierre après pierre</span></h1>
+              <p class="hero-lede">Des arènes gallo-romaines aux flèches gothiques, des châteaux de la Renaissance aux tours de verre contemporaines : découvrez comment la France a construit son visage à travers les siècles.</p>
+              <div class="hero-actions">
+                <a href="#frise" class="btn btn-primary">Explorer la frise</a>
+                <a href="batiments/index.html" class="btn btn-ghost">Voir tous les bâtiments</a>
+              </div>
+              <dl class="hero-stats">
+                <div><dt>10</dt><dd>grandes époques</dd></div>
+                <div><dt>2000+</dt><dd>ans d'histoire</dd></div>
+                <div><dt>22</dt><dd>monuments phares</dd></div>
+              </dl>
+            </div>
+          </div>
+
         </div>
 
         <nav class="hero-progress-ticks" id="heroProgressTicks" aria-hidden="true">
@@ -129,6 +173,9 @@
           <span class="tick" data-i="1"></span>
           <span class="tick" data-i="2"></span>
           <span class="tick" data-i="3"></span>
+          <span class="tick" data-i="4"></span>
+          <span class="tick" data-i="5"></span>
+          <span class="tick" data-i="6"></span>
         </nav>
 
         <p class="hero-scroll-hint mono" id="heroScrollHint">continuer à défiler ↓</p>
