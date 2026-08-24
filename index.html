@@ -10,14 +10,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://unpkg.com/three@0.143.0/build/three.module.js",
-    "three/addons/": "https://unpkg.com/three@0.143.0/examples/jsm/"
-  }
-}
-</script>
 </head>
 <body>
 
@@ -49,23 +41,98 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-tunnel" aria-hidden="true">
-      <canvas id="tunnelCanvas"></canvas>
-    </div>
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="hero-content">
-      <p class="hero-kicker">2000 ans d'architecture</p>
-      <h1>L'histoire des bâtiments français, <span>pierre après pierre</span></h1>
-      <p class="hero-lede">Des arènes gallo-romaines aux flèches gothiques, des châteaux de la Renaissance aux tours de verre contemporaines : découvrez comment la France a construit son visage à travers les siècles.</p>
-      <div class="hero-actions">
-        <a href="#frise" class="btn btn-primary">Explorer la frise</a>
-        <a href="batiments/index.html" class="btn btn-ghost">Voir tous les bâtiments</a>
+    <div class="hero-stage-track" id="heroStageTrack">
+      <div class="hero-stage">
+        <canvas id="showreelParticles" aria-hidden="true"></canvas>
+        <div class="hero-stage-inner" id="heroStageInner">
+
+          <!-- act 0 — chrome star -->
+          <div class="hact" id="hact0">
+            <div class="star-wrap" id="heroStarWrap">
+              <div class="star-halo"></div>
+              <svg class="chrome-star" viewBox="0 0 200 200">
+                <defs>
+                  <linearGradient id="heroChromeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#f6f4fb"/>
+                    <stop offset="30%" stop-color="#cdbfe8"/>
+                    <stop offset="48%" stop-color="#3d3560"/>
+                    <stop offset="55%" stop-color="#eeeaf7"/>
+                    <stop offset="72%" stop-color="#7d6ea8"/>
+                    <stop offset="100%" stop-color="#e9e5f5"/>
+                  </linearGradient>
+                </defs>
+                <path d="M100 4 C104 66 112 88 168 100 C112 112 104 134 100 196 C96 134 88 112 32 100 C88 88 96 66 100 4 Z" fill="url(#heroChromeGrad)" stroke="rgba(255,255,255,.5)" stroke-width="0.5"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- act 1 — device mockup -->
+          <div class="hact" id="hact1">
+            <div class="hact1-copy">
+              <h2>Pierre après<br>pierre.</h2>
+              <p>Chaque bâtiment raconte un siècle. Cliquez, explorez, remontez le temps.</p>
+            </div>
+            <div class="device" id="heroDevice">
+              <div class="device-bar"><div class="device-dots"><span></span><span></span><span></span></div></div>
+              <div class="device-screen">
+                <div class="device-skel" style="width:60%; height:10px;"></div>
+                <div class="device-skel" style="width:88%; height:10px;"></div>
+                <div class="device-skel" style="width:40%; height:10px;"></div>
+                <div class="device-prompt">
+                  <span>Rechercher : Notre-Dame de Paris…</span>
+                  <span class="send"><svg viewBox="0 0 24 24" fill="none"><circle cx="10" cy="10" r="6.5" stroke="#150220" stroke-width="2"/><path d="M19 19l-4.3-4.3" stroke="#150220" stroke-width="2" stroke-linecap="round"/></svg></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- act 2 — neon typographic panels -->
+          <div class="hact" id="hact2">
+            <div class="neon-panel" id="heroPanelA"><h2>Deux mille<br>ans</h2></div>
+            <div class="neon-panel" id="heroPanelB"><h2>d'architecture</h2></div>
+          </div>
+
+          <!-- act 3 — building grid -->
+          <div class="hact" id="hact3">
+            <div class="hact3-heading"><h3>22 monuments, 10 époques.</h3></div>
+            <div class="grid-wrap" id="heroGridWrap">
+              <a class="tile wide" href="batiments/notre-dame-paris.html" style="background-image:url('images/batiments/notre-dame-paris.jpg')"><span class="tag mono">Gothique</span><span class="fig">Notre-Dame</span></a>
+              <a class="tile tall" href="batiments/chateau-chambord.html" style="background-image:url('images/batiments/chateau-chambord.jpg')"><span class="tag mono">Renaissance</span><span class="fig">Chambord</span></a>
+              <a class="tile" href="batiments/pyramide-louvre.html" style="background-image:url('images/batiments/pyramide-louvre.jpg')"><span class="tag mono">Contemporain</span><span class="fig">Le Louvre</span></a>
+              <a class="tile" href="batiments/opera-garnier.html" style="background-image:url('images/batiments/opera-garnier.jpg')"><span class="tag mono">Haussmannien</span><span class="fig">Opéra Garnier</span></a>
+              <a class="tile" href="batiments/villa-savoye.html" style="background-image:url('images/batiments/villa-savoye.jpg')"><span class="tag mono">Moderne</span><span class="fig">Villa Savoye</span></a>
+              <a class="tile wide" href="batiments/arc-de-triomphe.html" style="background-image:url('images/batiments/arc-de-triomphe.jpg')"><span class="tag mono">Néoclassique</span><span class="fig">Arc de Triomphe</span></a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="hero-overlay" aria-hidden="true"></div>
+
+        <div class="hero-content" id="heroContent">
+          <p class="hero-kicker">2000 ans d'architecture</p>
+          <h1>L'histoire des bâtiments français, <span>pierre après pierre</span></h1>
+          <p class="hero-lede">Des arènes gallo-romaines aux flèches gothiques, des châteaux de la Renaissance aux tours de verre contemporaines : découvrez comment la France a construit son visage à travers les siècles.</p>
+          <div class="hero-actions">
+            <a href="#frise" class="btn btn-primary">Explorer la frise</a>
+            <a href="batiments/index.html" class="btn btn-ghost">Voir tous les bâtiments</a>
+          </div>
+          <dl class="hero-stats">
+            <div><dt>10</dt><dd>grandes époques</dd></div>
+            <div><dt>2000+</dt><dd>ans d'histoire</dd></div>
+            <div><dt>22</dt><dd>monuments phares</dd></div>
+          </dl>
+        </div>
+
+        <nav class="hero-progress-ticks" id="heroProgressTicks" aria-hidden="true">
+          <span class="tick" data-i="0"></span>
+          <span class="tick" data-i="1"></span>
+          <span class="tick" data-i="2"></span>
+          <span class="tick" data-i="3"></span>
+        </nav>
+
+        <p class="hero-scroll-hint mono" id="heroScrollHint">continuer à défiler ↓</p>
       </div>
-      <dl class="hero-stats">
-        <div><dt>10</dt><dd>grandes époques</dd></div>
-        <div><dt>2000+</dt><dd>ans d'histoire</dd></div>
-        <div><dt>22</dt><dd>monuments phares</dd></div>
-      </dl>
     </div>
   </section>
 
@@ -705,6 +772,6 @@
 </footer>
 
 <script src="js/script.js"></script>
-<script type="module" src="js/tunnel-hero.js"></script>
+<script src="js/showreel-hero.js"></script>
 </body>
 </html>
